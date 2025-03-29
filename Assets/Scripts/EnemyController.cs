@@ -17,7 +17,12 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         Vector3 chaseDirection = (player.transform.position - transform.position).normalized;
         enemyBD.AddForce(chaseDirection * speed);
+        if (transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
     }
 }
